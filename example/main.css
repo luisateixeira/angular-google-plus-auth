@@ -1,0 +1,28 @@
+body, button {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 80px;
+    color: #FFFFFF;
+    background-color: #3299BB;
+}
+
+.google-auth-box {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.google-button {
+    background-color: #FFFFFF;
+    border: 0px;
+    color: #3299BB;
+    outline: none;
+    font-weight: 300;
+    font-size: 30px;
+    padding: 8px 25px 10px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.highlight {
+    font-weight: 300;
+}

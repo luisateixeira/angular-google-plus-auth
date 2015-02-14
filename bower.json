@@ -1,0 +1,11 @@
+{
+  "name": "angular-google-plus-auth",
+  "version": "0.1.0",
+  "authors": [
+    "Luisa Teixeira <luisa.teixeira@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "https://github.com/angular/bower-angular.git#~1.3.13"
+  }
+}

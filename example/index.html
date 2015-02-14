@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Angular Google Plus Auth</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+
+    <div ng-include="'login.html'"></div>
+
+    <!-- build:js example.min.js -->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../dist/angular-google-plus-auth.js"></script>
+    <script src="app.js"></script>
+    <script src="boot.js"></script>
+    <!-- endbuild -->
+
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/client:platform.js?onload=googleAuthDone';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+</body>
+
+</html>
