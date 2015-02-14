@@ -1,7 +1,7 @@
 (function () {
 	var app = angular.module('app');
 	var user = {};
-	var clientId = '426819723405-ahc26ej8cl0fmb3vjds0qr927bu8svlo.apps.googleusercontent.com';
+	var clientId = 'your client Id';
 	var cookiePolicy = 'single_host_origin'; // The cookie policy specifies the domains that can access the cookie
 	var scope = 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email';
 	var responseType = 'token id_token';

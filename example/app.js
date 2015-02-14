@@ -1,7 +1,7 @@
 angular.module('app', ['google.plus.auth'])
 	.config(['googlePlusAuthProvider', function (googlePlusAuthProvider) {
 		googlePlusAuthProvider.config({
-			clientId: '426819723405-ahc26ej8cl0fmb3vjds0qr927bu8svlo.apps.googleusercontent.com'
+			clientId: 'your client id'
 		});
 	}])
 	.controller('AppCtrl', [
