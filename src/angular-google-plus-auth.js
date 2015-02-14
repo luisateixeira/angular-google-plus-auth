@@ -1,11 +1,5 @@
-//http://usejsdoc.org/about-getting-started.html
-//Use a documentation tag to describe your code.
-/**
- * Represents a book.
- * @constructor
- */
 angular.module('google.plus.auth', [])
-    .factory('googlePlusUser', function () {
+    .factory('googlePlusUser', function() {
         var storageUser = JSON.parse(localStorage.getItem("google.plus.auth.user")) || {};
         return angular.extend({}, {
             profile: null,
@@ -13,7 +7,7 @@ angular.module('google.plus.auth', [])
             authType: null
         }, storageUser);
     })
-    .provider('googlePlusAuth', function () {
+    .provider('googlePlusAuth', function() {
 
         var clientId;
         var cookiePolicy = 'single_host_origin';
@@ -27,12 +21,12 @@ angular.module('google.plus.auth', [])
          * config - Provider configuration
          *
          * @param  {Object} options An object with the configuration attributes
-		 * @param  {String} options.clientId Required. OAuth 2.0 client ID
-		 * @param  {String} options.cookiePolicy Optional. The cookie policy specifies the domains that can access the cookie.
-	     *										 The default value is single_host_origin.
-		 * 										 More information at https://developers.google.com/+/web/signin/reference#determining_a_value_for_cookie_policy
-		 * @param  {String} options.scope Optional. A space-delimited list of scope URIs. The default values are plus.login and userinfo.email.
-		 * 								  More information at https://developers.google.com/+/api/oauth#scopes
+         * @param  {String} options.clientId Required. OAuth 2.0 client ID
+         * @param  {String} options.cookiePolicy Optional. The cookie policy specifies the domains that can access the cookie.
+         *                                       The default value is single_host_origin.
+         *                                       More information at https://developers.google.com/+/web/signin/reference#determining_a_value_for_cookie_policy
+         * @param  {String} options.scope Optional. A space-delimited list of scope URIs. The default values are plus.login and userinfo.email.
+         *                                More information at https://developers.google.com/+/api/oauth#scopes
          */
         function config(options) {
             if (!options) {
@@ -40,7 +34,7 @@ angular.module('google.plus.auth', [])
             }
 
             if (!options.clientId) {
-                throw new Error( 'Google Auth Provider - config() - The clientId key is required');
+                throw new Error('Google Auth Provider - config() - The clientId key is required');
             }
 
             clientId = options.clientId;
@@ -55,12 +49,12 @@ angular.module('google.plus.auth', [])
                 '$rootScope',
                 '$q',
                 'googlePlusUser',
-                function ($rootScope, $q, googlePlusUser) {
+                function($rootScope, $q, googlePlusUser) {
 
                     /**
                      * login - Initiates the OAuth 2.0 authorization process and gets the user info.
                      * @return {Promise}  A promise that, once resolved, returns an object with the user profile and login status.
-					 * 					  If the promise is rejected, it returns the error.
+                     *                    If the promise is rejected, it returns the error.
                      */
                     function login() {
                         return getAuth(false)
@@ -70,7 +64,7 @@ angular.module('google.plus.auth', [])
 
                     /**
                      * logout - Signs a user out without logging the user out of Google.
-					 * 			After sign in out, it makes a authorize request to verify the sucefull logout.
+                     *          After sign in out, it makes a authorize request to verify the sucefull logout.
                      * @return {Promise}  A promise that, once resolved or rejected, returns an object with the authorization result.
                      */
                     function logout() {
@@ -85,16 +79,15 @@ angular.module('google.plus.auth', [])
 
                     /**
                      * getAuth - Initiates the OAuth 2.0 authorization process. If the immediate params is passed as false,
-					 * 		     the browser displays a popup window prompting the user authenticate and authorize.
+                     *           the browser displays a popup window prompting the user authenticate and authorize.
                      *
                      * @param  {Boolean} immediate If true, then login uses "immediate mode", which means that the token is
-					 * 							   refreshed behind the scenes, and no UI is shown to the user.
+                     *                             refreshed behind the scenes, and no UI is shown to the user.
                      * @return {Promise}           A promise that, once resolved or rejected, returns an object with the authorization result.
                      */
                     function getAuth(immediate) {
                         if (!clientId) {
-                            throw new Error('Google Auth Provider - The clientId is not defined. Please define it in configuration options'
-                            );
+                            throw new Error('Google Auth Provider - The clientId is not defined. Please define it in configuration options');
                         }
 
                         authDeferred = $q.defer();
@@ -113,16 +106,16 @@ angular.module('google.plus.auth', [])
 
                     /**
                      * getUserProfile - Get the public profile information. The information available
-				     * 					depends on the scope defined when configuring this provided
+                     *                  depends on the scope defined when configuring this provided
                      *
                      * @return {Promise}  A promise that, once resolved, returns an object with the user profile.
-					 * 					  If the promise is rejected, it returns the error.
+                     *                    If the promise is rejected, it returns the error.
                      */
                     function getUserProfile() {
                         profileDeferred = $q.defer();
-                        gapi.client.load('oauth2', 'v2', function () {
+                        gapi.client.load('oauth2', 'v2', function() {
                             gapi.client.oauth2.userinfo.get()
-                                .execute(function (response) {
+                                .execute(function(response) {
                                     if (response.error) {
                                         profileDeferred
                                             .reject(response.error);
