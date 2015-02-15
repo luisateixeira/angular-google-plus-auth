@@ -50,7 +50,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: 'example/',
 					src: ['index.html', 'main.css',
-						'login.html'
+						'login.html', 'images/*.*'
 					],
 					dest: 'example/dist/'
 				}]

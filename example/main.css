@@ -6,9 +6,19 @@ body, button {
     background-color: #3299BB;
 }
 
+.github-logo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.github-logo img {
+    width: 64px;
+    height: 64px;
+}
+
 .google-auth-box {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .google-button {
